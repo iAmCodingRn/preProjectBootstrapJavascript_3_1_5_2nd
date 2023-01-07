@@ -1,5 +1,6 @@
 package ru.kata.appspringboot.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -9,6 +10,7 @@ import org.springframework.security.core.GrantedAuthority;
 import javax.persistence.*;
 import java.util.Collection;
 
+@JsonIgnoreProperties(ignoreUnknown = true, value = {"users"})
 @Table(name = "roles", indexes = {
         @Index(name = "name", columnList = "name", unique = true)
 })

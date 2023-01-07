@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+>
+<head th:replace="layouts/head :: head">
+</head>
+<body class="bg-secondary bg-opacity-10">
+
+<th:block th:replace="layouts/head :: header"></th:block>
+
+<div class="container-xxl">
+    <div class="row">
+
+        <th:block th:replace="layouts/menu :: left"></th:block>
+
+        <div class="col-10 ps-4">
+
+            <th:block th:if="${#httpServletRequest.requestURI == '/admin'}">
+                <div class="users">
+                    <h1 th:text="*{title}"></h1>
+                    <ul class="nav nav-tabs" id="adminTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="users-tab" data-bs-toggle="tab" data-bs-target="#users"
+                                    type="button" role="tab" aria-controls="users" aria-selected="true">Users table
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="newUser-tab" data-bs-toggle="tab" data-bs-target="#newUser"
+                                    type="button" role="tab" aria-controls="newUser" aria-selected="false">New user
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </th:block>
+
+            <!--            <th:block th:if="${#httpServletRequest.requestURI != '/admin'}">-->
+            <h1 class="one-user d-none">User information-page</h1>
+            <!--            </th:block>-->
+
+            <main>
+                <th:block layout:fragment="content">content</th:block>
+            </main>
+
+        </div>
+    </div>
+</div>
+
+<th:block th:replace="layouts/foot :: js"></th:block>
+
+</body>
+</html>

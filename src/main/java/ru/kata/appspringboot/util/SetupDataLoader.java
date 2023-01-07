@@ -10,10 +10,7 @@ import ru.kata.appspringboot.repository.RoleRepository;
 import ru.kata.appspringboot.repository.UserRepository;
 import ru.kata.appspringboot.service.UserServiceImpl;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Objects;
+import java.util.*;
 
 @Component
 @AllArgsConstructor
@@ -42,6 +39,17 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
                 "w@w.w",
                 "w",
                 new HashSet<>(Collections.singletonList(roleRepository.findFirstByName("ROLE_USER"))));
+
+        createUserIfNotFound(
+                "e",
+                "User",
+                (byte) 3,
+                "e@e.e",
+                "e",
+                new HashSet<Role>(Arrays.asList(
+                        roleRepository.findFirstByName("ROLE_ADMIN"),
+                        roleRepository.findFirstByName("ROLE_USER"))));
+
     }
 
     protected Role createRoleIfNotFound(final String name) {

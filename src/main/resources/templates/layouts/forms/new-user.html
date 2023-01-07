@@ -1,0 +1,32 @@
+<th:block th:fragment="new-user">
+    <form class="text-center fw-bold" id="form-add-user">
+        <div class="mb-3">
+            <label for="firstName" class="form-label mb-0">First name</label>
+            <input type="text" class="form-control" id="firstName" name="firstName" required/>
+        </div>
+        <div class="mb-3">
+            <label for="lastName" class="form-label mb-0">Last name</label>
+            <input type="text" class="form-control" id="lastName" name="lastName" required/>
+        </div>
+        <div class="mb-3">
+            <label for="age" class="form-label mb-0">Age</label>
+            <input type="number" min="0" max="127" step="1" class="form-control" id="age" name="age" required/>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label mb-0">Email address</label>
+            <input type="email" class="form-control" id="email" name="email" required/>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label mb-0">Password</label>
+            <input type="password" class="form-control" id="password" name="password" required/>
+        </div>
+        <div class="mb-3">
+            <label for="roles" class="form-label mb-0">Role</label>
+            <select class="form-select" multiple size="2" id="roles" name="roles" required>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-success" data-bs-toggle="tab" data-bs-target="#users" role="tab"
+                aria-controls="users">Add new user
+        </button>
+    </form>
+</th:block>

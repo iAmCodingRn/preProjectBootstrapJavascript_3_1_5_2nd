@@ -1,0 +1,27 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
+<header class="w-100 bg-dark text-white clearfix p-2 mb-3" th:fragment="header">
+    <div class="container-xxl">
+        <div class="float-start">
+            <span class="fw-bold current-email" th:text="${#authentication.name}">admin@admin.admin</span>
+            with roles:
+            <span th:each="authority : ${#authentication.getAuthorities()}"
+                  th:text="${authority.getAuthority().replaceFirst('ROLE_', '') + ' '}">[ROLE_USER, ROLE_ADMIN]</span>
+        </div>
+        <div class="float-end">
+            <a class="button text-decoration-none text-white-50" href="javascript: document.logoutForm.submit()"
+               role="menuitem">Logout</a>
+            <form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
+                <input hidden type="submit" value="Sign Out"/>
+            </form>
+        </div>
+    </div>
+</header>
+</html>
+
+<head th:fragment="head">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title th:text="*{title}"></title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+</head>

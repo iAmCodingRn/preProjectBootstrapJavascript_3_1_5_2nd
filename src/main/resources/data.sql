@@ -1,4 +1,4 @@
-# -- добавление ролей
+-- добавление ролей
 # INSERT INTO roles (name)
 # SELECT 'ROLE_ADMIN'
 # WHERE NOT EXISTS(

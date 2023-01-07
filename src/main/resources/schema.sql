@@ -1,4 +1,4 @@
-# -- таблица со списком пользователей
+-- таблица со списком пользователей
 # CREATE TABLE IF NOT EXISTS users
 # (
 #     id         BIGINT AUTO_INCREMENT NOT NULL,

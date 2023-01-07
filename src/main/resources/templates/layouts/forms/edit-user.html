@@ -1,0 +1,101 @@
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<th:block th:fragment="modal-edit-user">
+    <div class="modal fade" id="modal-edit-user" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel">Edit user</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form class="text-center fw-bold" id="form-edit-user">
+                    <div class="container">
+                        <div class="modal-body row justify-content-center align-items-center">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="userId" class="form-label mb-0">ID</label>
+                                    <input type="text" class="form-control" id="userId" disabled name="id"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="firstName" class="form-label mb-0">First name</label>
+                                    <input type="text" class="form-control" id="firstName" name="firstName"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="lastName" class="form-label mb-0">Last name</label>
+                                    <input type="text" class="form-control" id="lastName" name="lastName"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="age" class="form-label mb-0">Age</label>
+                                    <input type="number" min="0" max="127" step="1" class="form-control" id="age"
+                                           name="age"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label mb-0">Email</label>
+                                    <input type="email" class="form-control" id="email" name="email"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="password" class="form-label mb-0">Password</label>
+                                    <input type="password" class="form-control" id="password" name="password"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="roles" class="form-label mb-0">Role</label>
+                                    <select class="form-select" multiple size="2" id="roles" name="roles">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Edit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</th:block>
+
+
+<th:block th:fragment="edit-user">
+    <form class="text-center fw-bold" id="editUser-form" th:method="PATCH"
+          th:action="@{/admin/{id}(id=${user.getId()})}"
+          th:object="${user}">
+        <div class="mb-3">
+            <label for="userId" class="form-label mb-0">ID</label>
+            <input type="text" class="form-control" id="userId" disabled th:field="*{id}"/>
+        </div>
+        <div class="mb-3">
+            <label for="firstName" class="form-label mb-0">First name</label>
+            <input type="text" class="form-control" id="firstName" th:field="*{firstName}"/>
+        </div>
+        <div class="mb-3">
+            <label for="lastName" class="form-label mb-0">Last name</label>
+            <input type="text" class="form-control" id="lastName" th:field="*{lastName}"/>
+        </div>
+        <div class="mb-3">
+            <label for="age" class="form-label mb-0">Age</label>
+            <input type="number" min="0" max="127" step="1" class="form-control" id="age" th:field="*{age}"/>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label mb-0">Email</label>
+            <input type="email" class="form-control" id="email" th:field="*{email}"/>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label mb-0">Password</label>
+            <input type="password" class="form-control" id="password" th:field="*{password}"/>
+        </div>
+        <div class="mb-3">
+            <label for="roles" class="form-label mb-0">Role</label>
+
+            <select class="form-select" multiple size="2" id="roles" th:field="*{roles}">
+                <th:block th:each="role : ${roles}">
+                    <option th:value="${role.id}"
+                            th:text="${role.getName().replaceFirst('ROLE_', '')}"
+                    />
+                </th:block>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-success">Edit</button>
+    </form>
+</th:block>
+
+</html>

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head th:replace="layouts/head :: head">
+</head>
+<body>
+<p layout:fragment="content">
+<div class="d-flex justify-content-center align-items-center container">
+    <div class="row col-md-3 mt-5">
+        <form method="post" th:action="@{/login}">
+            <p th:if="${param.error}" class="alert alert-danger" role="alert">Неправильные имя и пароль.</p>
+            <p th:if="${param.logout}" class="alert alert-info" role="alert">Элвис вышел из здания!</p>
+            <h1 class="h3 mb-3 fw-bold">Please sign in</h1>
+            <div class="mb-0">
+                <input name="j_email" type="email" class="form-control" id="email" placeholder="Email address">
+            </div>
+            <div class="mb-2">
+                <input name="j_password" type="password" class="form-control" id="password" placeholder="Passwords">
+            </div>
+            <!--        <div class="mb-3 form-check">-->
+            <!--            <input type="checkbox" class="form-check-input" id="checkbox">-->
+            <!--            <label class="form-check-label" for="checkbox">remember-me</label>-->
+            <!--        </div>-->
+            <button type="submit" class="btn btn-primary form-control">Sign in</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

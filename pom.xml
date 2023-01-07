@@ -8,7 +8,7 @@
         <version>2.5.6</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>ru.kata</groupId>
+    <groupId>ru.kozhaev</groupId>
     <artifactId>app-spring-boot</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
@@ -75,6 +75,21 @@
             <artifactId>thymeleaf-layout-dialect</artifactId>
             <version>3.0.0</version>
         </dependency>
+
+        <!--        ___________________________-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.boot</groupId>-->
+        <!--            <artifactId>spring-boot-starter-data-rest</artifactId>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.data</groupId>-->
+        <!--            <artifactId>spring-data-rest-hal-explorer</artifactId>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.boot</groupId>-->
+        <!--            <artifactId>spring-boot-starter-hateoas</artifactId>-->
+        <!--        </dependency>-->
+
     </dependencies>
 
     <build>
